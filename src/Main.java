@@ -1,15 +1,15 @@
-import com.utils.Bot;
+import com.utils.ConsoleInterface;
+import com.utils.DataRepository;
+import com.utils.DialogLogic;
 
 import java.util.Objects;
 
 public class Main {
     public static void main(String[] args) {
-        Bot bot = new Bot("Michael");
-        String message;
-        do {
-            message = bot.answer(bot.getRequest());
-            System.out.println(message);
-        }
-        while (!Objects.equals(message, "quit"));
+        DataRepository dataRepository = new DataRepository();
+        DialogLogic dialogLogic = new DialogLogic(dataRepository);
+        ConsoleInterface consoleInterface = new ConsoleInterface(dialogLogic);
+
+        consoleInterface.run();
     }
 }
