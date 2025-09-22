@@ -3,13 +3,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DataRepository {
-    public Map<String, Integer> QA;
+	private final Map<String, Integer> QA;
+	
 	public DataRepository() {
-		QA = new HashMap<>() {{
-			put("1 + 1 = ?", 2);
-			put("2 + 5 = ?", 7);
-			put("9 + 0 = ?", 9);
-			put("33 + 28 = ?", 61);
+		QA =  Map.of(
+			"1 + 1 = ?", 2,
+			"4 + 5 = ?", 9,
+			"33 + 28 = ?", 61
+		);
 
-	}
+	} 
+
+	public Map<String, Integer> getQA() {
+		return QA;
 }
