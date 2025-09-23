@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DataRepository {
-    private final Map<String, Integer> QA;
+    public Map<String, Integer> QA;
 
     public DataRepository() {
         QA = Map.of(
@@ -12,9 +12,5 @@ public class DataRepository {
                 "33 + 28 = ?", 61
         );
 
-    }
-
-    public Map<String, Integer> getQA() {
-        return QA;
     }
 }

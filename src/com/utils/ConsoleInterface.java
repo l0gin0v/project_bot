@@ -9,22 +9,18 @@ public class ConsoleInterface {
         dialogLogic = logic;
     }
 
+    private int getAnswer() {
+    }
+
     public void run() {
         Scanner input = new Scanner(System.in);
-        DataRepository data = dialogLogic.getInfo();
 
         while(!input.nextLine().equals("/start"));
 
-        for (int i = 0; i < data.questions.length; i++) {
-            System.out.println(dialogLogic.getCurrentQuestion(i));
-            dialogLogic.saveCurrentAnswer(input.nextLine(), i);
+        for (int i = 0; i < dialogLogic.getDataLenght(); i++) {
+            System.out.println(dialogLogic.getQuestion(i));
+            System.out.println(dialogLogic.checkAnswer(getAnswer(), i));
         }
-
-        System.out.println("\nСвод данных:");
-        for (int i = 0; i < data.answers.length; i++) {
-            System.out.println(data.questions[i] + " " + data.answers[i]);
-        }
-        System.out.println();
 
         String message;
         do {
